@@ -1,15 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import ProductInventory from './components/ProductInventory'
 
-
-function App() {
+const App = () => {
   return (
-    <div>
-      <p>This is my-app</p>
-      <p>This is my-app</p>
-      <p>This is my-app333</p>
-    </div>
+    <ProductInventory/>
   );
 }
 
 export default App;
-git

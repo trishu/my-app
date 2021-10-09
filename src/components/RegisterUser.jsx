@@ -9,9 +9,24 @@ const RegisterUser = () => {
                 <Card.Header className="text-center"><span>Register User</span></Card.Header>
                 <Card.Body>
                     <Form>
-                        <Form.Group className="mb-3" controlId="registerUserName">
-                            <Form.Label>Full Name</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Full Name" />
+                        <Form.Group className="mb-3" controlId="registerUserFName">
+                            <Form.Label>First Name</Form.Label>
+                            <Form.Control type="Text" placeholder="Enter First Name" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="registerUserLName">
+                            <Form.Label>Last Name</Form.Label>
+                            <Form.Control type="Text" placeholder="Enter Last Name" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="registerUserLocation">
+                            <Form.Label>Location</Form.Label>
+                            <Form.Control type="Text" placeholder="Enter Location" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="registerUserPhone">
+                            <Form.Label>Phone Number</Form.Label>
+                            <Form.Control type="Text" placeholder="Enter Phone Number" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserEmail">
@@ -19,9 +34,14 @@ const RegisterUser = () => {
                             <Form.Control type="email" placeholder="Enter email" />
                         </Form.Group>
 
-                        <Form.Group className="mb-2" controlId="registerUserSPassword">
+                        <Form.Group className="mb-2" controlId="registerUserPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
+                        </Form.Group>
+
+                        <Form.Group className="mb-2" controlId="registerUserConfirmPassword">
+                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Control type="confirmPassword" placeholder="Confirm Password" />
                         </Form.Group>
 
                         <Button variant="primary" type="submit">

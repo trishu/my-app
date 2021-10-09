@@ -4,7 +4,7 @@ import RegisterUser from "./RegisterUser";
 const RegisterLogin = () => {
     return (<div>
         <RegisterUser/>
-        <div style = {{height: '400px', borderRight: '1px solid #A9A9A9',position: 'absolute',right: '50%',marginTop:'3%'}}/>
+        <div style = {{height: '700px', borderRight: '1px solid #A9A9A9',position: 'absolute',right: '50%',marginTop:'3%'}}/>
         <Login/>
         
     </div>);

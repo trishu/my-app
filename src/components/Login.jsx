@@ -19,8 +19,8 @@ const Login = () => {
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                         
-                        <Button variant="primary" type="submit">
-                            Submit
+                        <Button variant="success" type="submit">
+                            Login
                         </Button>
                     </Form>
                 </Card.Body>

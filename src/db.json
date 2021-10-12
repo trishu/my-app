@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "09971397390",
+      "email": "a.trishu@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "firstName": "Trishap",
+      "lastName": "Agney",
+      "location": "Odisha",
+      "phoneNumber": "09971397390",
+      "email": "a.trishu@gmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "firstName": "aaa",
+      "lastName": "aaa",
+      "location": "Odisha",
+      "phoneNumber": "09971397390",
+      "email": "a.trishu@gmail.com",
+      "password": "123",
+      "id": 3
+    }
+  ]
+}

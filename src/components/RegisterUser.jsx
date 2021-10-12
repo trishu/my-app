@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import { useRef, useState } from 'react';
+import UserService from '../services/UserService.js';
 
 const RegisterUser = () => {
 
@@ -35,6 +36,7 @@ const RegisterUser = () => {
             password : registerUserPassword.current.value
         };
         console.log(enteredUser);
+        UserService.addUser(enteredUser);
     }
 
     return (

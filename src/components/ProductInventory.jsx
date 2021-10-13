@@ -3,7 +3,7 @@ import { Navbar, Nav, Container} from 'react-bootstrap';
 import Routes from '../Routes'
 
 const ProductInventory = () => {
-
+ 
     return (
         <>
             
@@ -16,6 +16,7 @@ const ProductInventory = () => {
                         <Nav.Link href="/product">Product</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/register-login" className="floatRight">Register/Login</Nav.Link>
+                        <Nav.Link href="/logout" className="floatRight">Logout</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

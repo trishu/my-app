@@ -3,6 +3,7 @@ import HomePage from './components/HomePage'
 import Product from './components/Product'
 import About from './components/About'
 import RegisterLogin from './components/RegisterLogin'
+import Logout from './components/Logout'
 
 
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
                 <Route path="/product" component={Product}></Route>
                 <Route path="/about" component={About}></Route>
                 <Route path="/register-login" component={RegisterLogin}></Route>
+                <Route path="/logout" component={Logout}></Route>
             </Switch>
         </BrowserRouter>
         </>

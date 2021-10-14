@@ -4,6 +4,7 @@ import ProductService from '../services/ProductService';
 import { useState, useEffect } from 'react';
 import { GrView, GrUpdate } from "react-icons/gr";
 import { RiDeleteBinLine } from "react-icons/ri";
+import Modal from 'react-bootstrap/Modal'
 
 
 const Product = () => {
@@ -48,6 +49,14 @@ const Product = () => {
 export default Product;
 
 const ProductRow = (props, key) => {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const handleDelete =()=>{
+        console.log("Product got deleted");
+        setShow(false);
+    }
     return (
         <>
             <tr key={key}>
@@ -56,8 +65,23 @@ const ProductRow = (props, key) => {
                 <td>{props.rowdata.productManufacturer}</td>
                 <td>{props.rowdata.productPrice}</td>
                 <td>{props.rowdata.productQuantity}</td>
-                <td><Button variant="info" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }}><GrView /> View</Button><Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }}><GrUpdate /> Update</Button><Button variant="danger" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }}><RiDeleteBinLine /> Delete</Button></td>
+                <td><Button variant="info" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }}><GrView /> View</Button><Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }}><GrUpdate /> Update</Button><Button variant="danger" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleShow}><RiDeleteBinLine /> Delete</Button></td>
             </tr>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Delete Confirmation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Are you sure you want to delete this Product</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="danger" onClick={handleDelete}>
+                        yes, Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }
+

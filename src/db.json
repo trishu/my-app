@@ -34,8 +34,16 @@
       "productQuantity": "1",
       "productPrice": "9500",
       "productDescription": "Printer",
-      "productManufacturer": "Epson Printer",
+      "productManufacturer": "Epson",
       "id": 1
+    },
+    {
+      "productName": "Epson Fax Machine",
+      "productQuantity": "2",
+      "productPrice": "10500",
+      "productDescription": "Fax Machine",
+      "productManufacturer": "Epson",
+      "id": 2
     }
   ]
 }

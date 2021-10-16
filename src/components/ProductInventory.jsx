@@ -1,9 +1,13 @@
+//import { useState,useEffect } from 'react';
 import { Navbar, Nav, Container} from 'react-bootstrap';
-
 import Routes from '../Routes'
 
+
 const ProductInventory = () => {
- 
+    // const [islogged,setIslogged] = useState(false);
+    // useEffect(() => {
+    //     window.sessionStorage.setItem("LoggedIn", islogged);
+    // },[]);
     return (
         <>
             
@@ -20,6 +24,7 @@ const ProductInventory = () => {
                         {/* <Nav.Link href="/register-login" className="floatRight">Register/Login</Nav.Link>
                         <Nav.Link href="/logout" className="floatRight">Logout</Nav.Link> */}
                         <Nav.Link href="/register-login">Register/Login</Nav.Link>
+                        <Nav.Link href="/userProfile">My Profile</Nav.Link>
                         <Nav.Link href="/logout">Logout</Nav.Link>
                     </Nav>
                 </Container>

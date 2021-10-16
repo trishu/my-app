@@ -20,13 +20,13 @@ const ProductRow = (props, key) => {
     }
     const handleViewProd = () => {
         console.log(prodId);
-        history.push('/ProductDetail', {id: prodId});
+        history.push('/productDetail', {id: prodId});
         console.log("Product got viewed");
     }
     const handleUpdateProd = () => {
         console.log(prodId);
         console.log("Product got updated");
-
+        history.push('/updateProduct', {id: prodId});
     }
     return (
         <>

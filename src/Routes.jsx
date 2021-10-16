@@ -9,6 +9,7 @@ import AddProduct from './components/AddProduct'
 import TopProducts from './components/TopProducts'
 import UpdateProduct from './components/UpdateProduct'
 import UserProfile from './components/UserProfile'
+import PageNotFound from './components/PageNotFound'
 
 
 const Routes = () => {
@@ -28,6 +29,7 @@ const Routes = () => {
                 <Route path="/updateProduct" component={UpdateProduct}></Route>
                 <Route path="/addProduct" component={AddProduct}></Route>
                 <Route path="/productDetail" component={ProductDetail}></Route>
+                <Route component={PageNotFound}></Route>
             </Switch>
         </BrowserRouter>
         </>

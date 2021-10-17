@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import { BrowserRouter, Route, Switch,Redirect } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Product from './components/Product'
 import About from './components/About'
@@ -14,24 +14,28 @@ import PageNotFound from './components/PageNotFound'
 
 const Routes = () => {
 
-    return(
+    return (
         <>
-        <BrowserRouter>
-            <Switch>
-                {/* <Route path="/" component={HomePage}></Route> */}
-                <Route path="/home" component={HomePage}></Route>
-                <Route path="/product" component={Product}></Route>
-                <Route path="/about" component={About}></Route>
-                <Route path="/register-login" component={RegisterLogin}></Route>
-                <Route path="/logout" component={Logout}></Route>
-                <Route path="/userProfile" component={UserProfile}></Route>
-                <Route path="/topProducts" component={TopProducts}></Route>
-                <Route path="/updateProduct" component={UpdateProduct}></Route>
-                <Route path="/addProduct" component={AddProduct}></Route>
-                <Route path="/productDetail" component={ProductDetail}></Route>
-                <Route component={PageNotFound}></Route>
-            </Switch>
-        </BrowserRouter>
+            <BrowserRouter>
+                <Switch>
+                    {/* default Routing to homepage  */}
+                    <Route exact path="/">
+                        <Redirect to="/home" />
+                    </Route>
+                    <Route path="/home" component={HomePage}></Route>
+                    <Route path="/product" component={Product}></Route>
+                    <Route path="/about" component={About}></Route>
+                    <Route path="/register-login" component={RegisterLogin}></Route>
+                    <Route path="/logout" component={Logout}></Route>
+                    <Route path="/userProfile" component={UserProfile}></Route>
+                    <Route path="/topProducts" component={TopProducts}></Route>
+                    <Route path="/updateProduct" component={UpdateProduct}></Route>
+                    <Route path="/addProduct" component={AddProduct}></Route>
+                    <Route path="/productDetail" component={ProductDetail}></Route>
+                    {/* page not found for the path */}
+                    <Route component={PageNotFound}></Route>
+                </Switch>
+            </BrowserRouter>
         </>
     );
 

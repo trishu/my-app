@@ -40,8 +40,9 @@ const AddProduct = () => {
         setProductDescription(e.target.value);
     }
 
-    const handleSave = () =>{
-
+    const handleSave = (e) =>{
+        e.preventDefault();
+        
     }
 
     return (
@@ -54,35 +55,35 @@ const AddProduct = () => {
                         <Form.Group className="mb-2" as={Row} controlId="productName">
                             <Form.Label column sm="6">Product Name :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" onChange ={handleProductName} />
+                                <Form.Control required type="Text" onChange ={handleProductName} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productPrice">
                             <Form.Label column sm="6">Product Price :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" onChange ={handleProductPrice} />
+                                <Form.Control required type="Text" onChange ={handleProductPrice} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productManufact">
                             <Form.Label column sm="6">Product Manufacturer :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" onChange ={handleProductManufacturer} />
+                                <Form.Control required type="Text" onChange ={handleProductManufacturer} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productQuantity">
                             <Form.Label column sm="6">Product Quantity :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" onChange={handleProductQuantity} />
+                                <Form.Control required type="Text" onChange={handleProductQuantity} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productDescription">
                             <Form.Label column sm="6">Product Description :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" as="textarea" rows={3} onChange={handleProductDescription} />
+                                <Form.Control required type="Text" as="textarea" rows={3} onChange={handleProductDescription} />
                             </Col>
                         </Form.Group>
                             <Button variant="secondary" onClick = {handleBack} style={{float:'left',marginLeft:'40%'}}>

@@ -62,7 +62,8 @@ const UpdateProduct = () => {
         setProductDescription(e.target.value);
     }
 
-    const handleSave = () =>{
+    const handleSave = (e) =>{
+        e.preventDefault();
 
     }
 
@@ -75,35 +76,35 @@ const UpdateProduct = () => {
                         <Form.Group className="mb-2" as={Row} controlId="productID">
                             <Form.Label column sm="6">Product Id :</Form.Label>
                             <Col sm="4">
-                                <Form.Control plaintext readOnly value={productId} />
+                                <Form.Control required plaintext readOnly value={productId} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productName">
                             <Form.Label column sm="6">Product Name :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" value={productName} onChange={handleProductName} />
+                                <Form.Control required type="Text" value={productName} onChange={handleProductName} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productPrice">
                             <Form.Label column sm="6">Product Price :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" value={productPrice} onChange={handleProductPrice} />
+                                <Form.Control required type="Text" value={productPrice} onChange={handleProductPrice} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productManufact">
                             <Form.Label column sm="6">Product Manufacturer :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" value={productManufacturer} onChange={handleProductManufacturer} />
+                                <Form.Control required type="Text" value={productManufacturer} onChange={handleProductManufacturer} />
                             </Col>
                         </Form.Group>
 
                         <Form.Group className="mb-2" as={Row} controlId="productQuantity">
                             <Form.Label column sm="6">Product Quantity :</Form.Label>
                             <Col sm="4">
-                                <Form.Control type="Text" value={productQuantity} onChange={handleProductQuantity} />
+                                <Form.Control required type="Text" value={productQuantity} onChange={handleProductQuantity} />
                             </Col>
                         </Form.Group>
 

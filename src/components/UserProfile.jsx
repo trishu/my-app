@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import UserService from '../services/UserService.js';
 
 const UserProfile = () => {
@@ -14,6 +14,12 @@ const UserProfile = () => {
         password:''
     });
     const [confirmPassword,setConfirmPassword] = useState('');
+    const [userId,setuserId] = useState('');
+
+    useEffect(()=>{
+        setuserId(window.sessionStorage.getItem("LoggedIn"));
+        console.log(userId);
+    },[]);    
     
 
     const   handleFirstName = (e) =>{
@@ -40,7 +46,8 @@ const UserProfile = () => {
         setUser({password:e.target.value})
     }
 
-    const submitUpdateUser = () =>{
+    const submitUpdateUser = (e) =>{
+        e.preventDefault();
 
     }
 
@@ -56,37 +63,37 @@ const UserProfile = () => {
                     <Form onSubmit={submitUpdateUser}>
                         <Form.Group className="mb-3" controlId="registerUserFName">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter First Name" value={user.firstName} onChange={handleFirstName} />
+                            <Form.Control required type="Text" placeholder="Enter First Name" value={user.firstName} onChange={handleFirstName} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserLName">
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Last Name" value={user.lastName} onChange={handleLastName}/>
+                            <Form.Control required type="Text" placeholder="Enter Last Name" value={user.lastName} onChange={handleLastName}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserLocation">
                             <Form.Label>Location</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Location" value={user.location} onChange={handleLocation}/>
+                            <Form.Control required type="Text" placeholder="Enter Location" value={user.location} onChange={handleLocation}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserPhone">
                             <Form.Label>Phone Number</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Phone Number" value={user.phoneNumber} onchange={handlePhoneNumber}/>
+                            <Form.Control required type="Text" placeholder="Enter Phone Number" value={user.phoneNumber} onChange={handlePhoneNumber}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" value={user.email} onChange={handleEmail}/>
+                            <Form.Control required type="email" placeholder="Enter email" value={user.email} onChange={handleEmail}/>
                         </Form.Group>
 
                         <Form.Group className="mb-2" controlId="registerUserPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" value={user.password} onChange={handlePassword}/>
+                            <Form.Control required type="password" placeholder="Password" value={user.password} onChange={handlePassword}/>
                         </Form.Group>
 
                         <Form.Group className="mb-2" controlId="registerUserConfirmPassword">
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password"value={user.password} onChange={handleConfirmPassword}/>
+                            <Form.Control required type="password" placeholder="Confirm Password"value={user.password} onChange={handleConfirmPassword}/>
                         </Form.Group>
 
                         <Button variant="primary" type="submit" style={{float:'right',marginRight:'40%'}}>

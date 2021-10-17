@@ -47,37 +47,37 @@ const RegisterUser = () => {
                     <Form onSubmit={submitRegUser}>
                         <Form.Group className="mb-3" controlId="registerUserFName">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter First Name" ref={registerUserFName}/>
+                            <Form.Control required type="Text" placeholder="Enter First Name" ref={registerUserFName}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserLName">
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Last Name" ref={registerUserLName}/>
+                            <Form.Control required type="Text" placeholder="Enter Last Name" ref={registerUserLName}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserLocation">
                             <Form.Label>Location</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Location" ref={registerUserLocation}/>
+                            <Form.Control required type="Text" placeholder="Enter Location" ref={registerUserLocation}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserPhone">
                             <Form.Label>Phone Number</Form.Label>
-                            <Form.Control type="Text" placeholder="Enter Phone Number" ref={registerUserPhone}/>
+                            <Form.Control required type="Text" placeholder="Enter Phone Number" ref={registerUserPhone}/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="registerUserEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" ref={registerUserEmail}/>
+                            <Form.Control required type="email" placeholder="Enter email" ref={registerUserEmail}/>
                         </Form.Group>
 
                         <Form.Group className="mb-2" controlId="registerUserPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" ref={registerUserPassword}/>
+                            <Form.Control required type="password" placeholder="Password" ref={registerUserPassword}/>
                         </Form.Group>
 
                         <Form.Group className="mb-2" controlId="registerUserConfirmPassword">
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password" ref={registerUserConfirmPassword} onChange={matchPassword}/>
+                            <Form.Control required type="password" placeholder="Confirm Password" ref={registerUserConfirmPassword} onChange={matchPassword}/>
                         </Form.Group>
 
                         <Button variant="primary" type="submit" disabled={disable}>

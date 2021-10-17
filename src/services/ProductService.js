@@ -23,6 +23,16 @@ class ProductService {
     }
   }
 
+  static addProduct = (product) => {
+    axios.post('http://localhost:3001/products', product)
+      .then( (response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  }
+
 }
 
 export default ProductService

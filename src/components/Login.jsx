@@ -59,12 +59,12 @@ const Login = () => {
                     <Form onSubmit={loginUser}>
                         <Form.Group className="mb-3" controlId="loginEmail">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} />
+                            <Form.Control required type="email" placeholder="Enter email" onChange={handleEmailChange} />
                         </Form.Group>
 
                         <Form.Group className="mb-2" controlId="loginPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} />
+                            <Form.Control required type="password" placeholder="Password" onChange={handlePasswordChange} />
                         </Form.Group>
 
                         <Button variant="success" type="submit">

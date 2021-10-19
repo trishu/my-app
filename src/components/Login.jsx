@@ -1,14 +1,16 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UserService from '../services/UserService.js';
+import { useHistory } from 'react-router';
 
 const Login = () => {
     const [userLogged, setUserLogged] = useState([]);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loginError, setloginError] = useState();
+    const history =useHistory();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -32,8 +34,9 @@ const Login = () => {
             if (data.length !== 0) {
                 setUserLogged(data);
                 console.log(userLogged);
-                window.sessionStorage.setItem("LoggedIn", "True");
-                data.forEach((user) => window.sessionStorage.setItem("user id", user.id))
+                window.sessionStorage.setItem("LoggedIn", true);
+                data.forEach((user) => window.sessionStorage.setItem("user id", user.id));
+                history.push('/product')
             }
             else {
                 setloginError("Incorrect Email or Password. Please try again");

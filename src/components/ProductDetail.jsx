@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { useDispatch} from "react-redux";
+import {retriveProduct} from '../actions/product'
 
 const ProductDetail = () => {
     const location = useLocation();
@@ -16,22 +18,22 @@ const ProductDetail = () => {
     const [productDescription, setProductDescription] = useState('');
     const [productId, setProductId] = useState('');
     let history = useHistory();
+    let dispatch = useDispatch();
 
 
     useEffect(() => {
         console.log(location.state.id);
         (async () => {
-            const data = await ProductService.getProductById(location.state.id);
+            const data = await dispatch(retriveProduct(location.state.id));
             console.log(data);
-            for (let prod of data) {
-                setProductId(prod.id);
-                console.log(prod.id);
-                setProductName(prod.productName);
-                setProductPrice(prod.productPrice);
-                setProductManufacturer(prod.productManufacturer);
-                setProductQuantity(prod.productQuantity);
-                setProductDescription(prod.productDescription);
-            }
+                setProductId(data.id);
+                console.log(data.id);
+                setProductName(data.productName);
+                setProductPrice(data.productPrice);
+                setProductManufacturer(data.productManufacturer);
+                setProductQuantity(data.productQuantity);
+                setProductDescription(data.productDescription);
+            
         }
         )();
     }, [location]);

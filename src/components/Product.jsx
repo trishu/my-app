@@ -20,8 +20,8 @@ const Product = () => {
     }, []);
 
     const getAllProducts = async () => {
-        
-        setProducts(dispatch(retriveAllProducts()));
+        const data =await dispatch(retriveAllProducts());
+        setProducts(data);
     }
 
     const handleAddProduct = () =>{

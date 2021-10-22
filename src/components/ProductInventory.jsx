@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react';
+
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import Routes from '../Routes'
+import { useSelector } from 'react-redux';
+import Routes from '../Routes';
+import { useDispatch } from 'react-redux';
+import {logoutUser} from '../actions/user'
+
 
 const ProductInventory = () => {
-    const [islogged, setIslogged] = useState(false);
-    useEffect(() => {
-        const loggedInUser = window.sessionStorage.getItem("LoggedIn");
-        if (loggedInUser) {
-            setIslogged(loggedInUser);
-        }
-    },[]);
 
+    const isLoggedIn = useSelector((users) =>users.userReducer.isLoggedIn);
+    let dispatch = useDispatch();
 
     return (
         <>
@@ -25,12 +24,11 @@ const ProductInventory = () => {
                         <Nav.Link href="/about">About</Nav.Link>
                     </Nav>
                     <Nav>
-                        {(!islogged) ? <Nav.Link href="/register-login">Register/Login</Nav.Link> : null}
-                        {(islogged) ? <Nav.Link href="/userProfile">My Profile</Nav.Link> : null}
-                        {(islogged) ? <Nav.Link href="/logout"
+                        {(!isLoggedIn) ? <Nav.Link href="/register-login">Register/Login</Nav.Link> : null}
+                        {(isLoggedIn) ? <Nav.Link href="/userProfile">My Profile</Nav.Link> : null}
+                        {(isLoggedIn) ? <Nav.Link href="/logout"
                             onClick={() => {
-                                window.sessionStorage.removeItem("LoggedIn");
-                                window.sessionStorage.removeItem("user id");
+                                dispatch(logoutUser());
                             }}>Logout</Nav.Link> : null}
                     </Nav>
                 </Container>

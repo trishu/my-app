@@ -58,7 +58,7 @@ const removeAll = () => {
 };
 
 const findByEmailPassword= (email,password) => {
-  return http.get(`/users?email=${email}+&password=${password}`);
+  return http.get(`/users?email=${email}&password=${password}`);
 };
 
 const UserService = {

@@ -1,6 +1,5 @@
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
-import ProductService from '../services/ProductService';
 import { useState, useEffect } from 'react';
 import { IoMdAdd } from "react-icons/io";
 import {GoGraph} from "react-icons/go"

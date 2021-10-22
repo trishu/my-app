@@ -1,9 +1,10 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
-import { useState, useEffect } from 'react';
-import UserService from '../services/UserService.js';
+import { useState} from 'react';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import {userLogin} from '../actions/user'
 
 const Login = () => {
     const [userLogged, setUserLogged] = useState([]);
@@ -11,6 +12,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [loginError, setloginError] = useState();
     const history =useHistory();
+    const dispatch =useDispatch();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -29,13 +31,11 @@ const Login = () => {
                 "email": email,
                 "password": password
             }
-            console.log(user);
-            let data = await UserService.getUser(user);
+            let data = await dispatch(userLogin(user.email,user.password));
+            console.log(data);
             if (data.length !== 0) {
                 setUserLogged(data);
                 console.log(userLogged);
-                window.sessionStorage.setItem("LoggedIn", true);
-                data.forEach((user) => window.sessionStorage.setItem("user id", user.id));
                 history.push('/product')
             }
             else {

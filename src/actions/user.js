@@ -2,7 +2,8 @@ import {
     CREATE_USER,
     UPDATE_USER,
     RETRIEVE_USER,
-    LOGIN_USER
+    LOGIN_USER,
+    LOGOUT_USER
 } from './types'
 
 import UserService from '../services/UserService';
@@ -49,7 +50,7 @@ export const updateUser = (id, data) => async (dispatch) => {
     }
 }
 
-export const loginUser = (email,Password) => async (dispatch) => {
+export const userLogin = (email,Password) => async (dispatch) => {
     try {
         const res = await UserService.findByEmailPassword(email, Password);
         dispatch({
@@ -62,3 +63,16 @@ export const loginUser = (email,Password) => async (dispatch) => {
         return Promise.reject(err);
     }
 }
+
+
+export const logoutUser = () => async (dispatch) => {
+    try {
+
+      dispatch({
+        type: LOGOUT_USER,
+        payload:{},
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }

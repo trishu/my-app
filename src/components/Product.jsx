@@ -6,10 +6,13 @@ import { IoMdAdd } from "react-icons/io";
 import {GoGraph} from "react-icons/go"
 import ProductRow from './ProductRow'
 import { useHistory } from "react-router-dom";
+import { useDispatch} from "react-redux";
+import {retriveAllProducts} from '../actions/product'
 
 const Product = () => {
     const [products, setProducts] = useState([]);
     let history = useHistory();
+    let dispatch = useDispatch();
 
     useEffect(() => {
         console.log("product")
@@ -17,7 +20,8 @@ const Product = () => {
     }, []);
 
     const getAllProducts = async () => {
-        setProducts(await ProductService.getAllProduct());
+        
+        setProducts(dispatch(retriveAllProducts()));
     }
 
     const handleAddProduct = () =>{

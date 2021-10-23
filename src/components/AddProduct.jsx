@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useHistory } from "react-router-dom";
-import ProductService from '../services/ProductService';
+import { useHistory } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
@@ -10,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { createProduct } from '../actions/product'
 
 const AddProduct = () => {
-    const location = useLocation();
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
     const [productQuantity, setProductQuantity] = useState('');
@@ -54,7 +52,8 @@ const AddProduct = () => {
                 "productPrice": productPrice,
                 "productQuantity": productQuantity,
                 "productManufacturer": productManufacturer,
-                "productDescription": productDescription
+                "productDescription": productDescription,
+                "productViews":0
             }
             let data = await dispatch(createProduct(product));
             if (data.length !== 0) {

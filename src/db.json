@@ -116,7 +116,9 @@
       "productPrice": "9500",
       "productDescription": "Printer",
       "productManufacturer": "Epson",
+      "productViews":0,
       "id": 1
+      
     },
     {
       "productName": "Epson Fax Machine",
@@ -124,6 +126,7 @@
       "productPrice": "10500",
       "productDescription": "Fax Machine",
       "productManufacturer": "Epson",
+      "productViews":0,
       "id": 2
     },
     {
@@ -132,6 +135,7 @@
       "productQuantity": "1",
       "productManufacturer": "Hp",
       "productDescription": "Desktop",
+      "productViews":0,
       "id": 3
     },
     {
@@ -140,6 +144,7 @@
       "productQuantity": "2",
       "productManufacturer": "HP",
       "productDescription": "Printer",
+      "productViews":0,
       "id": 4
     }
   ]

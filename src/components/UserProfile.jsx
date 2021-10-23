@@ -13,18 +13,17 @@ const UserProfile = () => {
         location:'',
         phoneNumber:'',
         email:'',
-        password:''
+        password:'',
+        id:''
     });
     const [confirmPassword,setConfirmPassword] = useState('');
-    const [userId,setuserId] = useState('');
+    const [userId,setuserId] = useState(0);
 
     let uId= useSelector((users) =>users.userReducer.id)
     let dispatch = useDispatch();
-    useEffect(async()=>{
-        setuserId(uId);
-        console.log(uId)
-        console.log(userId)
-        const data = await dispatch(retriveUser(userId));
+    useEffect(()=>{
+      (async () => {
+        const data = await dispatch(retriveUser(uId));
         console.log(data);
         if(data && data !== 'null' && data !== 'undefined'){
             setUser({
@@ -33,9 +32,11 @@ const UserProfile = () => {
                 location:data.location,
                 phoneNumber:data.phoneNumber,
                 email:data.email,
-                password:data.password
+                password:data.password,
+                id:data.id
             });
         }
+    })();
         
    },[]);
 

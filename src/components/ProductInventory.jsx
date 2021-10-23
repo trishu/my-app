@@ -29,7 +29,7 @@ const ProductInventory = () => {
                     <Nav>
                         {(!isLoggedIn) ? <Nav.Link as={Link} to="/register-login">Register/Login</Nav.Link> : null}
                         {(isLoggedIn) ? <Nav.Link as={Link} to="/userProfile">My Profile</Nav.Link> : null}
-                        {(isLoggedIn) ? <Nav.Link as={Link} to="/logout"
+                        {(isLoggedIn) ? <Nav.Link href="/logout"
                             onClick={() => {
                                 dispatch(logoutUser());
                             }}>Logout</Nav.Link> : null}

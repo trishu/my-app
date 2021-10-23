@@ -16,7 +16,6 @@ const Routes = () => {
 
     return (
         <>
-            <BrowserRouter>
                 <Switch>
                     {/* default Routing to homepage  */}
                     <Route exact path="/">
@@ -35,7 +34,6 @@ const Routes = () => {
                     {/* page not found for the path */}
                     <Route component={PageNotFound}></Route>
                 </Switch>
-            </BrowserRouter>
         </>
     );
 

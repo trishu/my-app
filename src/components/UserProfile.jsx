@@ -1,13 +1,12 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
-import { useRef, useState, useEffect } from 'react';
-import UserService from '../services/UserService.js';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {retriveUser} from '../actions/user'
 
-const UserProfile = (props) => {
+const UserProfile = () => {
     const [user,setUser] = useState({
         firstName:'',
         lastName:'',
@@ -18,24 +17,27 @@ const UserProfile = (props) => {
     });
     const [confirmPassword,setConfirmPassword] = useState('');
     const [userId,setuserId] = useState('');
-    setuserId(useSelector((users) =>users.userReducer.id));
-    
+
+    let uId= useSelector((users) =>users.userReducer.id)
     let dispatch = useDispatch();
-    useEffect(()=>{
-        console.log(props.id)
-        // const data = dispatch(retriveUser(props.id));
-        // if(user && user !== 'null' && user !== 'undefined'){
-        //     setUser({
-        //         firstName:data.firstName,
-        //         lastName:data.lastName,
-        //         location:data.location,
-        //         phoneNumber:data.phoneNumber,
-        //         email:data.email,
-        //         password:data.password
-        //     });
-        // }
+    useEffect(async()=>{
+        setuserId(uId);
+        console.log(uId)
+        console.log(userId)
+        const data = await dispatch(retriveUser(userId));
+        console.log(data);
+        if(data && data !== 'null' && data !== 'undefined'){
+            setUser({
+                firstName:data.firstName,
+                lastName:data.lastName,
+                location:data.location,
+                phoneNumber:data.phoneNumber,
+                email:data.email,
+                password:data.password
+            });
+        }
         
-    },[]);
+   },[]);
 
     
 

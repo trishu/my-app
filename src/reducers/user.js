@@ -55,8 +55,7 @@ const userReducer = (users = initialState, action) => {
                 users.isLoggedIn=true;
                 return users;
             })
-            return users;
-           break; 
+            return users; 
 
         default:
             return users;

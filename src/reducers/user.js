@@ -24,7 +24,7 @@ const userReducer = (users = initialState, action) => {
     switch (type) {
 
         case CREATE_USER:
-            return [...users, payload];
+            return payload;
 
         case UPDATE_USER:
             return users.map((user) => {
@@ -35,7 +35,7 @@ const userReducer = (users = initialState, action) => {
             })
 
         case RETRIEVE_USER:
-            return payload;
+            return users;
 
         case LOGOUT_USER:
                 users = initialState

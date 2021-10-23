@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import { useRef, useState } from 'react';
 import UserService from '../services/UserService.js';
+import { useDispatch } from 'react-redux';
+import {createUser} from '../actions/user'
 
 const RegisterUser = () => {
 
@@ -14,6 +16,10 @@ const RegisterUser = () => {
     const registerUserEmail = useRef();
     const registerUserPassword = useRef();
     const registerUserConfirmPassword = useRef();
+    let dispatch = useDispatch();
+    const [displaySucessError, setdisplaySucessError] = useState();
+    const [divStyle, setdivStyle] = useState({});
+ 
 
     const [disable, setDisable] = useState(true);
 
@@ -24,7 +30,7 @@ const RegisterUser = () => {
             setDisable(false);
     }
 
-    const submitRegUser = (event) => {
+    const submitRegUser = async (event) => {
         event.preventDefault();
         
         enteredUser = {
@@ -36,7 +42,22 @@ const RegisterUser = () => {
             password : registerUserPassword.current.value
         };
         console.log(enteredUser);
-        UserService.addUser(enteredUser);
+        const user = await dispatch(createUser(enteredUser));
+        if(user && user !== 'null' && user !== 'undefined'){
+            console.log("sucess");
+            setdisplaySucessError("User Created Sucessfully. Please login to continue");
+            setdivStyle({color: 'Green', fontFamily: 'cursive' });
+            document.getElementById("createUserForm").reset();
+        }
+        else{
+            console.log("Fail");
+            setdisplaySucessError("User Creation Failed.. please try again after some time ");
+            setdivStyle({ color: 'Red',fontFamily: 'fantasy'});
+        }
+
+    }
+    const checkUserCreationSucess =(user) =>{
+
     }
 
     return (
@@ -44,7 +65,9 @@ const RegisterUser = () => {
             <Card border="" style={{ width: '28rem', float: 'left', margin: '35px' }}>
                 <Card.Header className="text-center"><span>Register User</span></Card.Header>
                 <Card.Body>
-                    <Form onSubmit={submitRegUser}>
+                <div id="loginSucess" style={divStyle}>{displaySucessError}</div>
+
+                    <Form id = "createUserForm" onSubmit={submitRegUser}>
                         <Form.Group className="mb-3" controlId="registerUserFName">
                             <Form.Label>First Name</Form.Label>
                             <Form.Control required type="Text" placeholder="Enter First Name" ref={registerUserFName}/>

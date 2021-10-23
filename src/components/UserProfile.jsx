@@ -3,8 +3,11 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import { useRef, useState, useEffect } from 'react';
 import UserService from '../services/UserService.js';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {retriveUser} from '../actions/user'
 
-const UserProfile = () => {
+const UserProfile = (props) => {
     const [user,setUser] = useState({
         firstName:'',
         lastName:'',
@@ -15,11 +18,25 @@ const UserProfile = () => {
     });
     const [confirmPassword,setConfirmPassword] = useState('');
     const [userId,setuserId] = useState('');
-
+    setuserId(useSelector((users) =>users.userReducer.id));
+    
+    let dispatch = useDispatch();
     useEffect(()=>{
-        setuserId(window.sessionStorage.getItem("LoggedIn"));
-        console.log(userId);
-    },[]);    
+        console.log(props.id)
+        // const data = dispatch(retriveUser(props.id));
+        // if(user && user !== 'null' && user !== 'undefined'){
+        //     setUser({
+        //         firstName:data.firstName,
+        //         lastName:data.lastName,
+        //         location:data.location,
+        //         phoneNumber:data.phoneNumber,
+        //         email:data.email,
+        //         password:data.password
+        //     });
+        // }
+        
+    },[]);
+
     
 
     const   handleFirstName = (e) =>{

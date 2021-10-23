@@ -26,6 +26,87 @@
       "email": "c.trishu@gmail.com",
       "password": "123",
       "id": 3
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "abc@gmail.com",
+      "password": "123",
+      "id": 4
+    },
+    {
+      "firstName": "mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "qwerty@gmail.com",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "xyz@gmail.com",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "efg@gmail.com",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "efgij@gmail.com",
+      "password": "123",
+      "id": 8
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "zxcv@gmail.com",
+      "password": "123",
+      "id": 9
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "abcdefg@gmail.com",
+      "password": "123",
+      "id": 10
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "defg@gmail.com",
+      "password": "123",
+      "id": 11
+    },
+    {
+      "firstName": "Mohan",
+      "lastName": "Pattnaik",
+      "location": "Odisha",
+      "phoneNumber": "7504107153",
+      "email": "lkjh@gmail.com",
+      "password": "123",
+      "id": 12
     }
   ],
   "products": [

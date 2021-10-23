@@ -125,6 +125,22 @@
       "productDescription": "Fax Machine",
       "productManufacturer": "Epson",
       "id": 2
+    },
+    {
+      "productName": "HP Optiplex 3080",
+      "productPrice": "10500",
+      "productQuantity": "1",
+      "productManufacturer": "Hp",
+      "productDescription": "Desktop",
+      "id": 3
+    },
+    {
+      "productName": "HP Printer",
+      "productPrice": "6000",
+      "productQuantity": "2",
+      "productManufacturer": "HP",
+      "productDescription": "Printer",
+      "id": 4
     }
   ]
 }

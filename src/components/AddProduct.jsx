@@ -89,7 +89,7 @@ const AddProduct = () => {
             <Card style={{ width: '40rem', marginLeft: '30%', marginTop: '2%' }}>
                 <Card.Header className="text-center"><span>Add Product</span></Card.Header>
                 <Card.Body>
-                <div id="loginErr" style={{ color: 'red' }}>{addProductError} </div>
+                <div id="addProdErr" style={{ color: 'red' }}>{addProductError} </div>
                     <Form onSubmit={handleSave}>
 
                         <Form.Group className="mb-2" as={Row} controlId="productName">

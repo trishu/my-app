@@ -111,20 +111,20 @@
   ],
   "products": [
     {
-      "productName": "Epson Printer",
-      "productQuantity": "1",
+      "productName": "Epson Printer X202",
       "productPrice": "9500",
-      "productDescription": "Printer",
+      "productQuantity": "1",
       "productManufacturer": "Epson",
-      "productViews": 6,
+      "productDescription": "Printer",
+      "productViews": 7,
       "id": 1
     },
     {
       "productName": "Epson Fax Machine",
-      "productQuantity": "2",
-      "productPrice": "10500",
-      "productDescription": "Fax Machine",
+      "productPrice": "11500",
+      "productQuantity": "3",
       "productManufacturer": "Epson",
+      "productDescription": "Fax Machine, Copier",
       "productViews": 1,
       "id": 2
     },
@@ -138,12 +138,12 @@
       "id": 3
     },
     {
-      "productName": "HP Printer",
+      "productName": "HP Printer x15s",
       "productPrice": "6000",
       "productQuantity": "2",
       "productManufacturer": "HP",
       "productDescription": "Printer",
-      "productViews": 0,
+      "productViews": 1,
       "id": 4
     }
   ]

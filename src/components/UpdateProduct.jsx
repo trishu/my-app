@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useDispatch } from "react-redux";
-import { retriveProduct } from '../actions/product'
+import { retriveProduct,updateProduct} from '../actions/product'
 
 
 const UpdateProduct = () => {
@@ -17,8 +17,9 @@ const UpdateProduct = () => {
     const [productQuantity, setProductQuantity] = useState('');
     const [productManufacturer, setProductManufacturer] = useState('');
     const [productDescription, setProductDescription] = useState('');
-    const [productViewCount, setProductViewCount] = useState('');
+    const [productViewCount, setProductViewCount] = useState(0);
     const [productId, setProductId] = useState('');
+    const [addProductError, setAddProductError] = useState('');
     let history = useHistory();
     let dispatch = useDispatch();
 
@@ -64,9 +65,46 @@ const UpdateProduct = () => {
         setProductDescription(e.target.value);
     }
 
-    const handleSave = (e) => {
+    const handleSave = async(e) => {
         e.preventDefault();
 
+        setAddProductError();
+
+        if (productName.length !== 0 && productPrice.length !== 0 && productQuantity.length !== 0 && productManufacturer.length !== 0 && productDescription.length !== 0) {
+            const product = {
+                "productName": productName,
+                "productPrice": productPrice,
+                "productQuantity": productQuantity,
+                "productManufacturer": productManufacturer,
+                "productDescription": productDescription,
+                "productViews":productViewCount
+            }
+            let data = await dispatch(updateProduct(location.state.id,product));
+            if (data.length !== 0) {
+                history.push('/product')
+            }
+            else {
+                setAddProductError("Product Update Operation failed. Please try again");
+            }
+        }
+        else if (productName.length === 0 && productPrice.length !== 0 && productQuantity.length !== 0 && productManufacturer.length !== 0 && productDescription.length !== 0) {
+            setAddProductError('Product Name is required')
+        }
+        else if (productName.length !== 0 && productPrice.length === 0 && productQuantity.length !== 0 && productManufacturer.length !== 0 && productDescription.length !== 0) {
+            setAddProductError('Product Price is required')
+        }
+        else if (productName.length !== 0 && productPrice.length !== 0 && productQuantity.length === 0 && productManufacturer.length !== 0 && productDescription.length !== 0) {
+            setAddProductError('Product Quantity is required')
+        }
+        else if (productName.length !== 0 && productPrice.length !== 0 && productQuantity.length !== 0 && productManufacturer.length === 0 && productDescription.length !== 0) {
+            setAddProductError('Product product Manufacturer is required')
+        }
+        else if (productName.length !== 0 && productPrice.length !== 0 && productQuantity.length !== 0 && productManufacturer.length !== 0 && productDescription.length === 0) {
+            setAddProductError('Product product Description is required')
+        }
+        else{
+            setAddProductError('All Fields are required. please enter')
+        }
     }
 
     return (
@@ -74,6 +112,7 @@ const UpdateProduct = () => {
             <Card style={{ width: '40rem', marginLeft: '30%', marginTop: '2%' }}>
                 <Card.Header className="text-center"><span>Update Product</span></Card.Header>
                 <Card.Body>
+                <div id="updateProdErr" style={{ color: 'red' }}>{addProductError} </div>
                     <Form onSubmit={handleSave}>
                         <Form.Group className="mb-2" as={Row} controlId="productID">
                             <Form.Label column sm="6">Product Id :</Form.Label>

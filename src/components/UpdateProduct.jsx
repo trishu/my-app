@@ -6,8 +6,8 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { useDispatch} from "react-redux";
-import {retriveProduct} from '../actions/product'
+import { useDispatch } from "react-redux";
+import { retriveProduct } from '../actions/product'
 
 
 const UpdateProduct = () => {
@@ -17,22 +17,24 @@ const UpdateProduct = () => {
     const [productQuantity, setProductQuantity] = useState('');
     const [productManufacturer, setProductManufacturer] = useState('');
     const [productDescription, setProductDescription] = useState('');
+    const [productViewCount, setProductViewCount] = useState('');
     const [productId, setProductId] = useState('');
     let history = useHistory();
-    let dispatch =useDispatch();
-    
+    let dispatch = useDispatch();
+
     useEffect(() => {
         console.log(location.state.id);
         (async () => {
             const data = await dispatch(retriveProduct(location.state.id));
             console.log(data);
-                setProductId(data.id);
-                console.log(data.id);
-                setProductName(data.productName);
-                setProductPrice(data.productPrice);
-                setProductManufacturer(data.productManufacturer);
-                setProductQuantity(data.productQuantity);
-                setProductDescription(data.productDescription);
+            setProductId(data.id);
+            console.log(data.id);
+            setProductName(data.productName);
+            setProductPrice(data.productPrice);
+            setProductManufacturer(data.productManufacturer);
+            setProductQuantity(data.productQuantity);
+            setProductDescription(data.productDescription);
+            setProductViewCount(data.productViews);
         }
         )();
     }, [location]);
@@ -62,7 +64,7 @@ const UpdateProduct = () => {
         setProductDescription(e.target.value);
     }
 
-    const handleSave = (e) =>{
+    const handleSave = (e) => {
         e.preventDefault();
 
     }
@@ -112,6 +114,13 @@ const UpdateProduct = () => {
                             <Form.Label column sm="6">Product Description :</Form.Label>
                             <Col sm="4">
                                 <Form.Control type="Text" as="textarea" rows={3} value={productDescription} onChange={handleProductDescription} />
+                            </Col>
+                        </Form.Group>
+
+                        <Form.Group className="mb-2" as={Row} controlId="productViews">
+                            <Form.Label column sm="6">Product View Count :</Form.Label>
+                            <Col sm="4">
+                                <Form.Control required plaintext readOnly value={productViewCount} />
                             </Col>
                         </Form.Group>
                         <Button variant="secondary" onClick={handleBack} style={{ float: 'left', marginLeft: '40%' }}>

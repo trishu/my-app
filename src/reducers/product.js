@@ -26,7 +26,7 @@ const productReducer = (products = initialState, action) => {
             })
 
         case RETRIEVE_PRODUCT:
-            return payload;
+            return products;
 
         case FIND_PRODUCTS_BY_NAME:
             return payload;

@@ -4,11 +4,14 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
+import {retriveProduct,updateProduct } from '../actions/product'
+import { useDispatch } from "react-redux";
 
 const ProductRow = (props, key) => {
     const [show, setShow] = useState(false);
     const prodId = props.rowdata.id;
     let history = useHistory();
+    let dispatch = useDispatch();
 
     const handleDeleteClose = () => setShow(false);
     const handleDeleteShow = () => setShow(true);
@@ -18,8 +21,13 @@ const ProductRow = (props, key) => {
         
         setShow(false);
     }
-    const handleViewProd = () => {
+    const handleViewProd = async () => {
         console.log(prodId);
+        let data = await dispatch(retriveProduct(prodId));
+        console.log(data.productViews);
+        data.productViews = data.productViews+1;
+        let updatedData = await dispatch(updateProduct(prodId,data));
+        console.log(updatedData);
         history.push('/productDetail', {id: prodId});
         console.log("Product got viewed");
     }

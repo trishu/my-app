@@ -10,6 +10,9 @@ import { useDispatch } from "react-redux";
 import { retriveAllProducts } from '../actions/product'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 
 const Product = () => {
@@ -65,7 +68,8 @@ const Product = () => {
                 <Button variant="success" style={{ margin: "12px" }} onClick={handleAddProduct}><IoMdAdd />Add Product</Button>
                 <Button variant="info" style={{ margin: "12px" }} onClick={handleTopProduct}><GoGraph />Top Products</Button>
             </div>
-            <div style={{ float: 'right', marginRight: "40px", marginTop: "-2%" }}>
+            
+                <div style={{ float: 'right', marginRight: "40px", marginTop: "0%" }}>
                 <InputGroup className="mb-3">
                     <FormControl
                         placeholder="Product Name"
@@ -79,8 +83,36 @@ const Product = () => {
                     </Button>
                 </InputGroup>
             </div>
+            <div style={{ float: 'right', marginRight: "40px", marginTop: "0%" }}>
+                <Form>
+                    <Row className="align-items-Right">
+                        
+                        <Col sm={5} className="my-1">
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Manufacturer"
+                            />
+                        </Col>
+                        <Col sm={3} className="my-1">
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Price"
+                            />
+                        </Col>
+                        <Col sm={4} className="my-1">
+                            <Form.Check
+                                type="switch"
+                                id="custom-switch"
+                                label="Quantity"
+                            />
+                        </Col>
+                    </Row>
+                </Form>
+                </div>
             <div style={{ margin: "35px" }}>
-                
+
                 <Table striped bordered hover variant="dark" size="sm">
                     <thead>
                         <tr>
@@ -98,7 +130,7 @@ const Product = () => {
                         )) : null}
                     </tbody>
                 </Table>
-                {!(products.length)?<div style={{marginLeft:"40%"}}>No Items available to display </div>:null}
+                {!(products.length) ? <div style={{ marginLeft: "40%" }}>No Items available to display </div> : null}
             </div>
         </>
     );

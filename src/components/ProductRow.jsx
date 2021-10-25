@@ -5,13 +5,15 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { useHistory } from "react-router-dom";
 import {retriveProduct,updateProduct } from '../actions/product'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductRow = (props, key) => {
     const [show, setShow] = useState(false);
     const prodId = props.rowdata.id;
     let history = useHistory();
     let dispatch = useDispatch();
+
+    const isLoggedIn = useSelector((users) =>users.userReducer.isLoggedIn);
 
     const handleDeleteClose = () => setShow(false);
     const handleDeleteShow = () => setShow(true);
@@ -46,8 +48,8 @@ const ProductRow = (props, key) => {
                 <td>{props.rowdata.productQuantity}</td>
                 <td>
                     <Button variant="info" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleViewProd}><GrView /> View</Button>
-                    <Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleUpdateProd}><GrUpdate /> Update</Button>
-                    <Button variant="danger" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleDeleteShow}><RiDeleteBinLine /> Delete</Button>
+                    {isLoggedIn && <Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleUpdateProd}><GrUpdate /> Update</Button>}
+                    {isLoggedIn && <Button variant="danger" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleDeleteShow}><RiDeleteBinLine /> Delete</Button>}
                 </td>
             </tr>
             <Modal show={show} onHide={handleDeleteClose}>

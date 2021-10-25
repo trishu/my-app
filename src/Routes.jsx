@@ -21,16 +21,16 @@ const Routes = () => {
                     <Route exact path="/">
                         <Redirect to="/home" />
                     </Route>
-                    <Route path="/home" component={HomePage}></Route>
-                    <Route path="/product" component={Product}></Route>
-                    <Route path="/about" component={About}></Route>
-                    <Route path="/register-login" component={RegisterLogin}></Route>
-                    <Route path="/logout" component={Logout}></Route>
-                    <Route path="/userProfile" component={UserProfile}></Route>
-                    <Route path="/topProducts" component={TopProducts}></Route>
-                    <Route path="/updateProduct" component={UpdateProduct}></Route>
-                    <Route path="/addProduct" component={AddProduct}></Route>
-                    <Route path="/productDetail" component={ProductDetail}></Route>
+                    <Route exact path="/home" component={HomePage}></Route>
+                    <Route exact path="/product" component={Product}></Route>
+                    <Route exact path="/about" component={About}></Route>
+                    <Route exact path="/register-login" component={RegisterLogin}></Route>
+                    <Route exact path="/logout" component={Logout}></Route>
+                    <Route exact path="/userProfile" component={UserProfile}></Route>
+                    <Route exact path="/topProducts" component={TopProducts}></Route>
+                    <Route exact path="/updateProduct" component={UpdateProduct}></Route>
+                    <Route exact path="/addProduct" component={AddProduct}></Route>
+                    <Route exact path="/productDetail" component={ProductDetail}></Route>
                     {/* page not found for the path */}
                     <Route component={PageNotFound}></Route>
                 </Switch>

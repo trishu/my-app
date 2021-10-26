@@ -21,11 +21,16 @@ const Product = () => {
     let history = useHistory();
     let dispatch = useDispatch();
     const [filterProducts, setFilterProducts] = useState("");
+    const [manufacturerSwitch, setManufacturerSwitch] = useState(true);
+    const [priceSwitch, setPriceSwitch] = useState(true);
+    const [quantitySwitch, setQuantitySwitch] = useState(true);
+
 
     useEffect(() => {
         console.log("product")
         getAllProducts();
     }, []);
+
 
     const getAllProducts = async () => {
         const data = await dispatch(retriveAllProducts());
@@ -62,6 +67,18 @@ const Product = () => {
         setProducts(filteredData);
     }
 
+    const handleManufacturerSwitch =(e) =>{
+        setManufacturerSwitch(e.target.checked);
+    }
+
+    const handleQuantitySwitch =(e) =>{
+        setQuantitySwitch(e.target.checked);
+    }
+
+    const handlePriceSwitch =(e) =>{
+        setPriceSwitch(e.target.checked);
+    }
+
     return (
         <>
             <div style={{ margin: "35px" }}>
@@ -92,6 +109,8 @@ const Product = () => {
                                 type="switch"
                                 id="custom-switch"
                                 label="Manufacturer"
+                                checked={manufacturerSwitch}
+                                onChange = {handleManufacturerSwitch}
                             />
                         </Col>
                         <Col sm={3} className="my-1">
@@ -99,6 +118,9 @@ const Product = () => {
                                 type="switch"
                                 id="custom-switch"
                                 label="Price"
+                                checked={priceSwitch}
+                                onChange = {handlePriceSwitch}
+                                
                             />
                         </Col>
                         <Col sm={4} className="my-1">
@@ -106,6 +128,9 @@ const Product = () => {
                                 type="switch"
                                 id="custom-switch"
                                 label="Quantity"
+                                checked={quantitySwitch}
+                                onChange = {handleQuantitySwitch}
+                                
                             />
                         </Col>
                     </Row>
@@ -118,15 +143,15 @@ const Product = () => {
                         <tr>
                             <th>Id #</th>
                             <th>Product Name</th>
-                            <th>Manufacturer</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            {manufacturerSwitch?<th>Manufacturer</th>:null}
+                            {priceSwitch?<th>Price</th>:null}
+                            {quantitySwitch?<th>Quantity</th>:null}
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {products.length ? products.map((data, index) => (
-                            <ProductRow rowdata={data} key={index} />
+                            <ProductRow rowdata={data} key={index} manufacturerSwitch={manufacturerSwitch} priceSwitch={priceSwitch} quantitySwitch={quantitySwitch} />
                         )) : null}
                     </tbody>
                 </Table>

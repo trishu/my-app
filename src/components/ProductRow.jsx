@@ -43,9 +43,9 @@ const ProductRow = (props, key) => {
             <tr key={key}>
                 <td>{props.rowdata.id}</td>
                 <td>{props.rowdata.productName}</td>
-                <td>{props.rowdata.productManufacturer}</td>
-                <td>{props.rowdata.productPrice}</td>
-                <td>{props.rowdata.productQuantity}</td>
+                {(props.manufacturerSwitch)?<td>{props.rowdata.productManufacturer}</td>:null}
+                {(props.priceSwitch)?<td>{props.rowdata.productPrice}</td>:null}
+                {(props.quantitySwitch)?<td>{props.rowdata.productQuantity}</td>:null}
                 <td>
                     <Button variant="info" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleViewProd}><GrView /> View</Button>
                     {isLoggedIn && <Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleUpdateProd}><GrUpdate /> Update</Button>}

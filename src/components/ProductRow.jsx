@@ -48,7 +48,7 @@ const ProductRow = (props, key) => {
                 {(props.quantitySwitch)?<td>{props.rowdata.productQuantity}</td>:null}
                 <td>
                     <Button variant="info" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleViewProd}><GrView /> View</Button>
-                    {isLoggedIn && <Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleUpdateProd}><GrUpdate /> Update</Button>}
+                    <Button variant="primary" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleUpdateProd}><GrUpdate /> Update</Button>
                     {isLoggedIn && <Button variant="danger" size="sm" style={{ marginRight: "10px", marginLeft: "10px" }} onClick={handleDeleteShow}><RiDeleteBinLine /> Delete</Button>}
                 </td>
             </tr>

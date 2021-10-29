@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { useDispatch} from "react-redux";
 import {retriveProduct} from '../actions/product'
+import { useSelector } from 'react-redux';
 
 const ProductDetail = () => {
     const location = useLocation();
@@ -18,6 +19,7 @@ const ProductDetail = () => {
     const [productId, setProductId] = useState('');
     let history = useHistory();
     let dispatch = useDispatch();
+    const isLoggedIn = useSelector((users) =>users.userReducer.isLoggedIn);
 
 
     useEffect(() => {
@@ -31,8 +33,7 @@ const ProductDetail = () => {
                 setProductPrice(data.productPrice);
                 setProductManufacturer(data.productManufacturer);
                 setProductQuantity(data.productQuantity);
-                setProductDescription(data.productDescription);
-            
+                setProductDescription(data.productDescription);            
         }
         )();
     }, [location]);

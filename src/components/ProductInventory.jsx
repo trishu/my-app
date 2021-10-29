@@ -1,12 +1,11 @@
 
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import Routes from '../Routes';
+import Routes from '../Routes/Routes';
 import { useDispatch } from 'react-redux';
 import {logoutUser} from '../actions/user'
 import { Link } from 'react-router-dom';
 import './ProductInventory.css'
-import {LinkContainer} from 'react-router-bootstrap'
 import {useLocation} from "react-router-dom";
 
 const ProductInventory = () => {

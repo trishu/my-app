@@ -13,6 +13,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { useSelector } from 'react-redux';
 
 
 const Product = () => {
@@ -24,7 +25,7 @@ const Product = () => {
     const [manufacturerSwitch, setManufacturerSwitch] = useState(true);
     const [priceSwitch, setPriceSwitch] = useState(true);
     const [quantitySwitch, setQuantitySwitch] = useState(true);
-
+    const isLoggedIn = useSelector((users) =>users.userReducer.isLoggedIn);
 
     useEffect(() => {
         console.log("product")

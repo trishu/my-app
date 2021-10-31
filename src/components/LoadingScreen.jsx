@@ -3,9 +3,11 @@ import Spinner from 'react-bootstrap/Spinner';
 const LoadingScreen = () => {
     return (
         <>
-            <Spinner animation="border" role="status" style={{marginTop:'50%',marginLeft:'50%'}}>
+        <div style ={{marginLeft:'50%',marginTop:'15%'}}>
+            <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
+        </div>
         </>
     );
 }

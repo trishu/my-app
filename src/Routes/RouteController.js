@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute'
 import AuthRoute from './AuthRoute'
+import PageNotFound from '../components/PageNotFound'
 /*
 1) Public Routes: These are routes which are accessible to both guest and logged in users. 
 Example: Landing Page, Privacy Policy etc.
@@ -12,11 +13,21 @@ These shouldn’t be accessible for logged in users. Example: Login, Sign Up, Fo
  redirect the user to sign-in page. 
 */
 
+const paths = [ "/home" ,"/product","/about","/register-login","/logout","/userProfile","/topProducts","/updateProduct","/addProduct","/productDetail"];
+
 const RouteController = (props) => {
   const { routeType, ...routeProps  } = props
+//     const matchString = () =>{
+//     for (let j=0; j<paths.length; j++) {
+//         if (!(paths[j].match(routeProps.path)))
+//         {
+//           routeProps.component={PageNotFound};
+//         }
+//     }
+// }
   return (
     <>
-      {routeType === 'public' &&<Route{...routeProps}/>}
+      {routeType === 'public' && <Route{...routeProps}/>}
       {(routeType === 'protected') && (<ProtectedRoute {...routeProps} />)}
       {(routeType === 'auth') && (<AuthRoute {...routeProps} />)}
     </>

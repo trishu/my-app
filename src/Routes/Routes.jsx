@@ -143,11 +143,12 @@ const Routes = () => {
                 path={'/productDetail'}
                 exact
             />
+
             {/* <RouteController
                 routeType={'public'}
                 isAuth={isAuth}
                 component={pageNotFound}
-                path={'*'}
+                path ={}
                 exact 
             /> */}
             {/* <Route path="*">

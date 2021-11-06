@@ -27,9 +27,14 @@ const userReducer = (users = initialState, action) => {
             return payload;
 
         case UPDATE_USER:
-            return users.map((user) => {
-                if (user.id === payload.id) {
-                    return { ...user, ...payload }
+            return users.map((u) => {
+                if (u.id === payload.id) {
+                    u.firstName =payload.firstName;
+                    u.lastName=payload.lastName ;
+                    u.location=payload.location ;
+                    u.phoneNumber=payload.phoneNumber ;
+                    u.email=payload.email ;
+                    u.password=payload.password;
                 }
                 return users;
             })

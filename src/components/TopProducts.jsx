@@ -43,7 +43,7 @@ const TopProducts = () => {
   }, []);
   return (
     <>
-      <div className="chart-container" style={{ position: 'relative', height: '400px', width: '500px' }}>
+      <div className="chart-container" style={{ position: 'relative', height: '500px', width: '800px',margin:'25px'  }}>
         <canvas id="myChart" />
       </div>
     </>

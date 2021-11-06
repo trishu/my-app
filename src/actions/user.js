@@ -38,6 +38,8 @@ export const retriveUser = (id) => async (dispatch) => {
 
 export const updateUser = (id, data) => async (dispatch) => {
     try {
+        console.log(id);
+        console.log(data);
         const res = await UserService.update(id, data);
         dispatch({
             type: UPDATE_USER,

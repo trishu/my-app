@@ -3,7 +3,7 @@
     {
       "firstName": "Mohan",
       "lastName": "Pattnaik",
-      "location": "Odisha",
+      "location": "Pune",
       "phoneNumber": "09971397390",
       "email": "a.trishu@gmail.com",
       "password": "123",
@@ -12,8 +12,8 @@
     {
       "firstName": "Trishap",
       "lastName": "Agney",
-      "location": "Odisha",
-      "phoneNumber": "09971397390",
+      "location": "Madhya Pradesh",
+      "phoneNumber": "9971397390",
       "email": "b.trishu@gmail.com",
       "password": "123",
       "id": 2
@@ -116,7 +116,7 @@
       "productQuantity": "1",
       "productManufacturer": "Epson",
       "productDescription": "Printer",
-      "productViews": 20,
+      "productViews": 21,
       "id": 1
     },
     {
